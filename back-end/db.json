@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "firstName": "firstName",
+      "lastName": "lastName",
+      "email": "email",
+      "password": "password",
+      "createdAt": 1594555746744,
+      "id": 1
+    },
+    {
+      "firstName": "tfyt",
+      "lastName": "ret",
+      "email": "ret@ty.cpm",
+      "password": "123",
+      "createdAt": 1594555962734,
+      "id": 2
+    },
+    {
+      "firstName": "rest",
+      "lastName": "test",
+      "email": "tsre@ty.com",
+      "password": "123",
+      "createdAt": 1594556081433,
+      "id": 3
+    }
+  ]
+}

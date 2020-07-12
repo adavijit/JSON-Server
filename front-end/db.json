@@ -1,0 +1,33 @@
+{
+  "users": [
+    {
+      "firstName": "firstName",
+      "lastName": "lastName",
+      "email": "email",
+      "password": "password",
+      "id": 1
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "json-abc",
+      "author": "typicoiuyiuyiude",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

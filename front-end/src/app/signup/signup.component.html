@@ -1,0 +1,64 @@
+<mat-card >
+    <mat-card-title style="background-color:rgb(33, 121, 136);padding:5px" >Signup</mat-card-title>
+<mat-card-content>
+<form action="#">
+    <p>
+        <mat-form-field>
+          <input 
+          #firstName
+          type="text" matInput placeholder="First Name" 
+          formControlName="firstName">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input 
+          #lastName
+          type="text" matInput placeholder="Last Name" 
+          formControlName="lastName">
+        </mat-form-field>
+      </p>
+  <p>
+    <mat-form-field>
+      <input 
+      #email
+      type="email" matInput placeholder="Email Address" 
+      formControlName="email">
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field>
+      <input 
+      #password
+      type="password" 
+      matInput placeholder="Password" 
+      formControlName="password">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <input 
+      #confirmPassword
+      type="password" matInput placeholder="Confirm password" formControlName="conform password">
+    </mat-form-field>
+  </p>
+
+
+  <div class="button">
+    <button  mat-raised-button color="primary"
+    (click)= "onLoginClick()"
+    >Already have an account?</button> &nbsp;
+    <button  mat-raised-button color="primary"
+    (click)="onSignup(
+       firstName.value, lastName.value, email.value, password.value, confirmPassword.value
+    )"
+    
+    
+    >Submit</button>
+  </div>
+  
+</form>
+
+</mat-card-content>
+</mat-card>
