@@ -1,25 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  isSignup= false
-  isLogin= true
+export class AppComponent implements OnInit {
+  isLoginSignup= true
 
 
   title = 'front-end';
+  ngOnInit(){
+    if(localStorage.getItem('token')!=null){
+      this.isLoginSignup = false
+    }else{
+      this.isLoginSignup = true
+    }
 
-
-  isLoginClicked(){
-    this.isLogin = true
-    this.isSignup= false
   }
-  isSignupClicked(){
-    this.isSignup = true
-    this.isLogin = false
+  handleAuthChange(status:string){
+    if(status==="login"){
+      this.isLoginSignup= false
+    }
+    if(status==='logout'){
+      localStorage.removeItem('token')
+      this.isLoginSignup= true
+    }
+    
   }
 
 }

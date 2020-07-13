@@ -1,0 +1,10 @@
+<app-login
+*ngIf="isLogin"
+(isSignupClicked)="isSignupClicked()"
+(isLoggedIn)="onLoggedIn()"
+></app-login>
+<app-signup
+*ngIf="isSignup"
+(isLoginClicked)="isLoginClicked()"
+
+></app-signup>

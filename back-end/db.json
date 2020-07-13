@@ -1,28 +1,83 @@
 {
   "users": [
     {
-      "firstName": "firstName",
-      "lastName": "lastName",
-      "email": "email",
-      "password": "password",
-      "createdAt": 1594555746744,
+      "email": "aviji@asda.com",
+      "password": "$2a$10$WneY1ceTDxDpheqn33XBnOG8jwG7LfPmr284uHEZ1A4uriO/m5WCq",
+      "firstName": "qwe",
+      "lastName": "asd",
       "id": 1
-    },
+    }
+  ],
+  "employees": [
     {
-      "firstName": "tfyt",
-      "lastName": "ret",
-      "email": "ret@ty.cpm",
-      "password": "123",
-      "createdAt": 1594555962734,
-      "id": 2
-    },
-    {
-      "firstName": "rest",
-      "lastName": "test",
-      "email": "tsre@ty.com",
-      "password": "123",
-      "createdAt": 1594556081433,
+      "contact": "324",
+      "name": "Av",
+      "email": "qwe",
+      "department": "1",
+      "age": "2",
+      "gender": "Male",
+      "address": "terter",
       "id": 3
+    },
+    {
+      "contact": "324",
+      "name": "Av",
+      "email": "qwe",
+      "department": "1",
+      "age": "2",
+      "gender": "Male",
+      "address": "terter",
+      "id": 4
+    },
+    {
+      "name": "Ac",
+      "email": "234",
+      "department": "1",
+      "age": "2",
+      "gender": "Male",
+      "address": "234",
+      "contact": "84",
+      "id": 5
+    },
+    {
+      "name": "toto-on-call",
+      "email": "123",
+      "department": "Testing",
+      "age": "3",
+      "gender": "Male",
+      "address": "12312",
+      "contact": "123",
+      "id": 6
+    },
+    {
+      "name": "Avijit",
+      "email": "we",
+      "department": "Development",
+      "age": "2",
+      "gender": "Male",
+      "address": "we",
+      "contact": "9084174036",
+      "id": 7
+    },
+    {
+      "name": "Avijit Das",
+      "email": "adavijit@yahoo.com",
+      "department": "System Admin",
+      "age": "34",
+      "gender": "Male",
+      "address": "Test Address",
+      "contact": "9804174036",
+      "id": 8
+    },
+    {
+      "name": "ui",
+      "email": "ad@fh.com",
+      "department": "Development",
+      "age": "32",
+      "gender": "Male",
+      "address": "lnk",
+      "contact": "uih",
+      "id": 9
     }
   ]
 }

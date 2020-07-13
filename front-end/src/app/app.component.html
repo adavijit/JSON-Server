@@ -1,10 +1,7 @@
-<app-login
-*ngIf="isLogin"
-(isSignupClicked)="isSignupClicked()"
-
-></app-login>
-<app-signup
-*ngIf="isSignup"
-(isLoginClicked)="isLoginClicked()"
-
-></app-signup>
+<app-login-signup
+*ngIf="isLoginSignup"
+(onUserLoggedIn)="handleAuthChange('login')"
+></app-login-signup>
+<app-home *ngIf="!isLoginSignup"
+(isLogout)="handleAuthChange('logout')"
+></app-home>

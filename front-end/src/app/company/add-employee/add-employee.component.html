@@ -1,0 +1,99 @@
+   
+<mat-card>    
+    <!-- Title of an Card -->    
+    <mat-card-title>    
+        Add Employee   
+    </mat-card-title>    
+    
+    <mat-card-content>    
+        <form action="#">    
+            <table>    
+                <tr>    
+                    <td>    
+                        <mat-form-field class="demo-full-width">    
+                            <input matInput placeholder="Name" #name>    
+                        </mat-form-field>    
+                    </td>  
+                    <td>    
+                        <mat-form-field class="demo-full-width">    
+                            <input matInput placeholder="Phone Number" #contact>    
+                        </mat-form-field>    
+                    </td>      
+                </tr> 
+                <tr>    
+                    <td>    
+                        <mat-form-field class="demo-full-width">    
+                            <input matInput placeholder="Email" #email>    
+                        </mat-form-field>    
+                    </td>      
+                    <td>   
+                        <mat-form-field>    
+                            <mat-select placeholder="Select Department" #department>    
+                                <mat-option>-- Select Department --</mat-option>    
+                                <mat-option value="Development">Development</mat-option>    
+                                <mat-option value="Testing">Testing</mat-option>    
+                                <mat-option value="System Admin">System Admin</mat-option>    
+                                <mat-option value="Finance">Finance</mat-option>    
+
+                            </mat-select>    
+                        </mat-form-field>    
+                    </td> 
+                </tr>        
+               
+                <tr>    
+                    
+                    <td>   
+                        <mat-form-field>    
+                            <mat-select placeholder="Select Age" #age>      
+                                <mat-option *ngFor="let item of ages" value={{item}} >{{item}}</mat-option>    
+                             
+                            </mat-select>    
+                        </mat-form-field>    
+                    </td> 
+                    <td>    
+                        <span>Gender&nbsp;</span> 
+                        <mat-radio-group >  
+                            <mat-radio-button name="gender" #gender value="Male">Male&nbsp;</mat-radio-button>    
+                            <mat-radio-button name="gender" #gender value="Female">Female</mat-radio-button>    
+                        </mat-radio-group>    
+                    </td>   
+                </tr>    
+                   
+                <tr>    
+                     <td colspan="2">
+                        <mat-form-field >
+                            <mat-label>Enter Address</mat-label>
+                            <textarea matInput placeholder="Enter full Address" #address></textarea>
+                          </mat-form-field>
+                     </td>
+                </tr>    
+                <tr>    
+                    <td colspan="2" class="content-center">    
+                        <button mat-raised-button color="accent"
+                        (click)="onFormSubmit(name.value,contact.value,email.value,department.value,age.value,gender.radioGroup.value,address.value)"
+                        
+                        >Submit</button> 
+                    </td>    
+                </tr>    
+            </table>    
+        </form>    
+    </mat-card-content>    
+</mat-card>
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <p *ngIf="isError">Something error!!!</p>
+      <div class="button" *ngIf="isError">
+        <button  mat-raised-button color="danger"
+        (click)="closeModal('no')">Cancel</button>
+      </div>
+      <p *ngIf="!isError">Saved successfully</p>
+      <div class="button" *ngIf="!isError">
+        <button  mat-raised-button color="danger"
+        (click)="closeModal('success')">Cancel</button>
+      </div>
+    </div>
+  
+  </div>

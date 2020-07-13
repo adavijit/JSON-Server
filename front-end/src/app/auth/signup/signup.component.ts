@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 
 
@@ -11,7 +11,9 @@ import { AuthService } from '../services/auth.service';
 export class SignupComponent implements OnInit {
 
   @Output() isLoginClicked = new EventEmitter<any>()
-  dialogOpen = false
+  isError= false
+  errorText=""
+  
 
   constructor(
     
@@ -32,23 +34,41 @@ export class SignupComponent implements OnInit {
     this.isLoginClicked.emit()
   }
   onSignup(firstName:string, lastName:string,email:string,password:string,confirmPassword:string){
-    
+    let modal = document.getElementById('myModal')
+    modal.style.display = "block";
 
     
     if(this.ValidateEmail(email) && confirmPassword===password ){
       this.authService.signUp({
-        firstName : firstName,
-        lastName : lastName,
-        email : email,
-        password : password
-      }).then(res=> console.log(res)
-      )
+        "firstName" : firstName,
+        "lastName" : lastName,
+        "email" : email,
+        "password" : password
+      })
+      .then(res=>{
+        console.log(res);
+        // localStorage.setItem('token',JSON.stringify(res['accessToken']))
+        
+      } 
+      ).catch(err=>{
+        this.errorText= "Something error!!!"
+        this.isError= true
+        
+      })
 
     }else{
-      console.log('error 2');
+      this.errorText= "Something error!!!"
+      this.isError = true
       
     }
 
+  }
+ 
+  closeModal(){
+    let modal = document.getElementById('myModal')
+
+    modal.style.display = "none";
+    
   }
 
 }

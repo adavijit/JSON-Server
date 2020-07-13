@@ -1,0 +1,25 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { EmployeeStatisticsComponent } from './employee-statistics.component';
+
+describe('EmployeeStatisticsComponent', () => {
+  let component: EmployeeStatisticsComponent;
+  let fixture: ComponentFixture<EmployeeStatisticsComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ EmployeeStatisticsComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(EmployeeStatisticsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

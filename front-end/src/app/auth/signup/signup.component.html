@@ -1,5 +1,7 @@
 <mat-card >
-    <mat-card-title style="background-color:rgb(33, 121, 136);padding:5px" >Signup</mat-card-title>
+    <mat-card-title 
+    style="background-color:#3f51b5;padding:5px; 
+    border:1px #3f51b5; border-radius: 2px; color: white;"  >Signup</mat-card-title>
 <mat-card-content>
 <form action="#">
     <p>
@@ -46,7 +48,7 @@
 
 
   <div class="button">
-    <button  mat-raised-button color="primary"
+    <button  mat-button
     (click)= "onLoginClick()"
     >Already have an account?</button> &nbsp;
     <button  mat-raised-button color="primary"
@@ -62,3 +64,20 @@
 
 </mat-card-content>
 </mat-card>
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <p *ngIf="isError">{{errorText}}</p>
+      <div class="button" *ngIf="isError">
+        <button  mat-raised-button color="danger"
+        (click)="closeModal()">Try Again</button>
+      </div>
+      <p *ngIf="!isError">Saved successfully</p>
+      <div class="button" *ngIf="!isError">
+        <button  mat-raised-button color="danger"
+        (click)="onLoginClick()">Login</button>
+      </div>
+    </div>
+  
+  </div>

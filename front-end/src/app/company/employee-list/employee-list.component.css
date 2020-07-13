@@ -1,0 +1,7 @@
+table {
+    max-width: 80%;    
+    margin: 2em auto;    
+   
+    width: 100%;
+    overflow: scroll;
+  }

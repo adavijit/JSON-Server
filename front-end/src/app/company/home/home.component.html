@@ -1,0 +1,26 @@
+<mat-toolbar>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <button mat-button (click)="onNavStatusChange('add')" >
+        Add Employee
+      </button>
+      <button mat-button (click)="onNavStatusChange('list')" >
+         Employee List
+      </button>
+      <button mat-button  (click)="onNavStatusChange('stat')">
+        Statistics
+     </button>
+    <button mat-button (click)="onLogout()" >
+      Logout
+    </button>
+</mat-toolbar>
+<app-add-employee
+(saveSuccess)="onNavStatusChange('list')"
+*ngIf="addEmployeeComponent"
+></app-add-employee>
+<app-employee-list
+*ngIf="listEmployeeComponent"
+></app-employee-list>
+<app-employee-statistics
+*ngIf="statisticsComponent"
+></app-employee-statistics>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import axios from 'axios'
 @Injectable({
   providedIn: 'root'
 })
@@ -8,24 +8,35 @@ export class AuthService {
   constructor() { }
 
   async signUp(authDetails : any){
-    console.log(authDetails);
-    
-    await fetch('http://localhost:3000/users/',{
-      method: 'POST', // or 'PUT'
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(authDetails),
-    })
-    
-    
-    .then(res=>{
-      console.log("asdasdasPPPPPPPPP");
-      console.log(res);
-      
-      return res
-    }).catch(err=>{
-      return err
-    })
+    return new Promise(async (resolve, reject) => {
+      try {
+          axios.post('http://localhost:3000/register',authDetails)
+          .then(res=>{
+            resolve(res.data)
+          })
+          .catch(err=>{
+            reject(err)
+          })
+      } 
+      catch (error) {
+        reject(error);  
+      }
+    });
+  }
+  async signIn(authDetails : any){
+    return new Promise(async (resolve, reject) => {
+      try {
+          axios.post('http://localhost:3000/login',authDetails)
+          .then(res=>{
+            resolve(res.data)
+          })
+          .catch(err=>{
+            reject(err)
+          })
+      } 
+      catch (error) {
+        reject(error);  
+      }
+    });
   }
 }
