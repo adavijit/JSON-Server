@@ -6,39 +6,16 @@
       "firstName": "qwe",
       "lastName": "asd",
       "id": 1
+    },
+    {
+      "email": "adavijit@yahoo.com",
+      "password": "$2a$10$n341wERXRIRhn1ue1FX0LO7Og3H8Y1ycOVqR26WObgO64OMsCJ/96",
+      "firstName": "Avijit",
+      "lastName": "Das",
+      "id": 2
     }
   ],
   "employees": [
-    {
-      "contact": "324",
-      "name": "Av",
-      "email": "qwe",
-      "department": "1",
-      "age": "2",
-      "gender": "Male",
-      "address": "terter",
-      "id": 3
-    },
-    {
-      "contact": "324",
-      "name": "Av",
-      "email": "qwe",
-      "department": "1",
-      "age": "2",
-      "gender": "Male",
-      "address": "terter",
-      "id": 4
-    },
-    {
-      "name": "Ac",
-      "email": "234",
-      "department": "1",
-      "age": "2",
-      "gender": "Male",
-      "address": "234",
-      "contact": "84",
-      "id": 5
-    },
     {
       "name": "toto-on-call",
       "email": "123",
