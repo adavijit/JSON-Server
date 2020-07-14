@@ -13,48 +13,37 @@
       "firstName": "Avijit",
       "lastName": "Das",
       "id": 2
+    },
+    {
+      "email": "liomessi@kio.com",
+      "password": "$2a$10$Xarl/KchKj2TUYQh8buWKeFPd0JdSdnbOjpZugtDYkOsm/E94D7gi",
+      "firstName": "Lionel",
+      "lastName": "Messi",
+      "id": 3
     }
   ],
   "employees": [
     {
-      "name": "toto-on-call",
-      "email": "123",
+      "name": "Avijit",
+      "email": "adavijit@yahoo.com",
       "department": "Testing",
       "age": "3",
       "gender": "Male",
-      "address": "12312",
-      "contact": "123",
-      "id": 6
+      "address": "Test",
+      "contact": "9876543211",
+      "technologies": "HTML,Javascript",
+      "id": 10
     },
     {
-      "name": "Avijit",
-      "email": "we",
-      "department": "Development",
-      "age": "2",
-      "gender": "Male",
-      "address": "we",
-      "contact": "9084174036",
-      "id": 7
-    },
-    {
-      "name": "Avijit Das",
+      "name": "Av",
       "email": "adavijit@yahoo.com",
-      "department": "System Admin",
+      "department": "Finance",
       "age": "34",
       "gender": "Male",
-      "address": "Test Address",
-      "contact": "9804174036",
-      "id": 8
-    },
-    {
-      "name": "ui",
-      "email": "ad@fh.com",
-      "department": "Development",
-      "age": "32",
-      "gender": "Male",
-      "address": "lnk",
-      "contact": "uih",
-      "id": 9
+      "address": "test",
+      "contact": "9876543211",
+      "technologies": "NA",
+      "id": 11
     }
   ]
 }

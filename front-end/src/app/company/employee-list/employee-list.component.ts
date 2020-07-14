@@ -8,7 +8,7 @@ import { CompanyService } from 'src/app/services/company.service';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-  displayedColumns: string[] = ['ID', 'Name', 'Email', 'Age', 'Gender','Department', 'Address'];
+  displayedColumns: string[] = ['ID', 'Name', 'Email', 'Age', 'Gender','Department','Technologies', 'Address'];
   
   
   dataSource = [ ];
@@ -35,6 +35,7 @@ export class EmployeeListComponent implements OnInit {
         "name": res[i].name,
         "email": res[i].email,
         "department": res[i].department,
+        'technologies' : res[i].technologies,
         "age":  res[i].age,
         "gender":  res[i].gender,
         "address":  res[i].address,

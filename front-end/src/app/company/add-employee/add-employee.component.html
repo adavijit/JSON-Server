@@ -66,7 +66,30 @@
                             <textarea matInput placeholder="Enter full Address" #address></textarea>
                           </mat-form-field>
                      </td>
-                </tr>    
+                </tr>   
+                <tr *ngIf="department.value!='Finance'">     
+                    <td >
+                        <mat-label>Known Technology</mat-label>
+                      <br>
+                        <div>
+                            <form>
+                              <div class="form-group">
+                                <input type="checkbox" name="tech" id="html" value="HTML">
+                                <label for="html">HTML</label>
+                              </div>
+                              <div class="form-group">
+                                <input type="checkbox" name="tech" id="css" value="CSS">
+                                <label for="css">CSS</label>
+                              </div>
+                              <div class="form-group">
+                                <input type="checkbox" name="tech" id="javascript" value="Javascript">
+                                <label for="javascript">Javascript</label>
+                              </div>
+                            </form>
+                          </div>
+                      
+                    </td>
+               </tr>    
                 <tr>    
                     <td colspan="2" class="content-center">    
                         <button mat-raised-button color="accent"

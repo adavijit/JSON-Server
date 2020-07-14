@@ -16,7 +16,7 @@ import {MatRadioModule} from '@angular/material/radio'
 import { BrowserModule } from '@angular/platform-browser';      
 import { FormsModule,ReactiveFormsModule } from '@angular/forms'; 
 import {MatTableModule} from '@angular/material/table';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeStatisticsComponent } from './employee-statistics/employee-statistics.component';      

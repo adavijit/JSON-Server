@@ -34,6 +34,10 @@
         <th mat-header-cell *matHeaderCellDef> Departement </th>
         <td mat-cell *matCellDef="let element"> {{element.department}} </td>
       </ng-container>
+      <ng-container matColumnDef="Technologies">
+        <th mat-header-cell *matHeaderCellDef> Technologies </th>
+        <td mat-cell *matCellDef="let element"> {{element.technologies}} </td>
+      </ng-container>
       <ng-container matColumnDef="Address">
         <th mat-header-cell *matHeaderCellDef> Address </th>
         <td mat-cell *matCellDef="let element"> {{element.address}} </td>

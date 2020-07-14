@@ -12,6 +12,7 @@ export class AddEmployeeComponent implements OnInit {
   isError = false  
   ageLimit = 35
   ages = []
+  isTech= true
  @Output() saveSuccess = new EventEmitter<any>()  
 
   constructor(private companyService : CompanyService) { }
@@ -50,6 +51,23 @@ export class AddEmployeeComponent implements OnInit {
   }
   onFormSubmit(name: string,contact: string,email: string,department: string,age: string,gender: string,address: string){
 
+
+    let arr=[] 
+    let checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+    for (let i = 0; i < checkboxes.length; i++) {
+      this.isTech= false
+      arr.push(checkboxes[i]['value']) 
+    }
+    let technologies= arr.join()
+    console.log(technologies);
+    if(technologies=="")
+    technologies= "NA"
+    
+
+
+
+
     if(!name || !contact || !email || !department || !age || !gender || !address || !this.phonenumberValidate(contact) ||  !this.ValidateEmail(email)){
       this.isError= true
       let modal = document.getElementById('myModal')
@@ -62,7 +80,8 @@ export class AddEmployeeComponent implements OnInit {
         "age": age,
         "gender": gender,
         "address" : address,
-        "contact" : contact
+        "contact" : contact,
+        "technologies" : technologies
       })
       .then(res=>{
         this.isError = false
