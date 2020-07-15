@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from 'src/app/services/company.service';
+import { EmployeeDetails } from 'src/app/shared/model/employee.model';
 
 
 @Component({
@@ -8,10 +9,10 @@ import { CompanyService } from 'src/app/services/company.service';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-  displayedColumns: string[] = ['ID', 'Name', 'Email', 'Age', 'Gender','Department','Technologies', 'Address'];
+  displayedColumns: string[] = [ 'Name', 'Email', 'Age', 'Gender','Department','Technologies', 'Address'];
   
   
-  dataSource = [ ];
+  dataSource=[]
   isDataLoaded= false
   
   constructor(private companyService : CompanyService  ) {
@@ -22,12 +23,11 @@ export class EmployeeListComponent implements OnInit {
    this.loadTable()
   }
   loadTable(){
-    this.companyService.getAllEmployee()
-    .then(res=>{
 
-      
-     for(let i=0;i<Object.keys(res).length;i++){
-     
+
+
+    this.companyService.getAllEmployee().subscribe(res=>{
+       for(let i=0;i<Object.keys(res).length;i++){
 
        
       this.dataSource.push({
@@ -35,17 +35,16 @@ export class EmployeeListComponent implements OnInit {
         "name": res[i].name,
         "email": res[i].email,
         "department": res[i].department,
-        'technologies' : res[i].technologies,
+        'technology' : res[i].technology,
         "age":  res[i].age,
         "gender":  res[i].gender,
-        "address":  res[i].address,
-        "id": res[i].id
-     
-
+        "address":  res[i].address
       })
      }
      this.isDataLoaded = true
     })
+
+    
   }
    
 

@@ -7,4 +7,5 @@ export class EmployeeDetails {
     technology: string;
     address: string;
     email: string;
+    department:string;
   }

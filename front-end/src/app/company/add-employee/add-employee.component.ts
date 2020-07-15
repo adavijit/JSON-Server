@@ -1,8 +1,9 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { CompanyService } from 'src/app/services/company.service';
 import { FormBuilder } from '@angular/forms';
-import { FormGroup, FormControl, Validators } from '@angular/forms'
+import {  Validators } from '@angular/forms'
 import { EmployeeDetails } from 'src/app/shared/model/employee.model';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-add-employee',
@@ -15,12 +16,22 @@ export class AddEmployeeComponent implements OnInit {
   ageLimit = 35
   ages = []
   isTech= true
-  EmpName=''
-  contactForm;
-  deptName=''
-  tech= ''
+  empForm;
   techArray=[]
   employeeDetails : EmployeeDetails
+  modalStyle= {
+      "display": "none",
+      "position": "fixed",
+      "z-index": "1",
+      "padding-top": "100px",
+      "left": "0",
+      "top": "0",
+      "width": "100%",
+      "height": "100%",
+      "overflow": "auto",
+      "background-color": "rgba(0,0,0,0.4)" 
+    
+  }
  @Output() saveSuccess = new EventEmitter<any>()  
 
   constructor(
@@ -29,7 +40,7 @@ export class AddEmployeeComponent implements OnInit {
     ) { 
 
 
-      this.contactForm = this.formBuilder.group({
+      this.empForm = this.formBuilder.group({
         fullName: ['', [Validators.required]],
         email: ['', [Validators.required, Validators.email]],
         gender: ['', [Validators.required]],
@@ -46,24 +57,24 @@ export class AddEmployeeComponent implements OnInit {
   
  
     get fullName() {
-      return this.contactForm.get('fullName');
+      return this.empForm.get('fullName');
     }
    
     get email() {
-      return this.contactForm.get('email');
+      return this.empForm.get('email');
     }
    
     get gender() {
-      return this.contactForm.get('gender');
+      return this.empForm.get('gender');
     }
-    get department() {
-      return this.contactForm.get('department');
+    get department() {    
+      return this.empForm.get('department');
     }
     get contact() {
-      return this.contactForm.get('contact');
+      return this.empForm.get('contact');
     }
     get address() {
-      return this.contactForm.get('address');
+      return this.empForm.get('address');
     }
  
    
@@ -77,91 +88,67 @@ export class AddEmployeeComponent implements OnInit {
     ];
    
     onSubmit() {
-      
       this.employeeDetails={
-        name : this.contactForm.value.fullName,
-        age: this.contactForm.value.fullName,
-        contact: this.contactForm.value.fullName,
-        gender: this.contactForm.value.gender,
+        name : this.empForm.value.fullName,
+        age: this.empForm.value.age,
+        contact: this.empForm.value.contact,
+        gender: this.empForm.value.gender,
         technology: this.techArray.length? this.techArray.join(): "NA",
-        address: this.contactForm.value.fullName,
-        email: this.contactForm.value.email,
+        address: this.empForm.value.address,
+        email: this.empForm.value.email,
+        department:this.empForm.value.department
       }
-      
-      console.log(this.contactForm.value);
+
+      this.companyService.saveEmployeeData(this.employeeDetails).subscribe(
+        data=> {
+          console.log(data)
+          this.modalStyle = {
+            "display": "block",
+          "position": "fixed",
+          "z-index": "1",
+          "padding-top": "100px",
+          "left": "0",
+          "top": "0",
+          "width": "100%",
+          "height": "100%",
+          "overflow": "auto",
+          "background-color": "rgba(0,0,0,0.4)" 
+          }
+        
+        }
+        
+      )
     }
-    onCheckChange(event){
-      if(event.target.checked){
-        this.techArray.push(event.target.value)
+    onDeptChange(event:any){
+     if(event.target.innerHTML =='Finance')
+     this.isTech = false
+     else
+     this.isTech= true
+      
+    }
+
+   
+    onCancel(){
+      this.saveSuccess.emit()
+    }
+    onCheckChange(event:MatCheckboxChange){
+      
+      if(event.checked){
+        this.techArray.push(event.source.value)
       }
       else{
-        this.techArray = this.techArray.filter(item => item !== event.target.value)
+        this.techArray = this.techArray.filter(item => item !== event.source.value)
       }
 
     }
+
+
   ngOnInit(): void {
     for(let i=18;i<=this.ageLimit;i++)
     this.ages.push(i)
   }
 
-  closeModal(status: string){
-    let modal = document.getElementById('myModal')
-
-    modal.style.display = "none";
-    if(status=== 'success'){
-      this.saveSuccess.emit()
-    }
-    
-  }
-  onFormSubmit(){
-
-   
-
-    
-
-    console.log(this.EmpName);
-    
-    // let arr=[] 
-    // let checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
-
-    // for (let i = 0; i < checkboxes.length; i++) {
-    //   this.isTech= false
-    //   arr.push(checkboxes[i]['value']) 
-    // }
-    // let technologies= arr.join()
-    // console.log(technologies);
-    // if(technologies=="")
-    // technologies= "NA"
-    
-
-
-
-
-    // if(!name || !contact || !email || !department || !age || !gender || !address || !this.phonenumberValidate(contact) ||  !this.ValidateEmail(email)){
-    //   this.isError= true
-    //   let modal = document.getElementById('myModal')
-    //     modal.style.display = "block";
-    // }else{
-    //   this.companyService.saveEmployeeData({
-    //     "name": name,
-    //     "email": email,
-    //     "department": department,
-    //     "age": age,
-    //     "gender": gender,
-    //     "address" : address,
-    //     "contact" : contact,
-    //     "technologies" : technologies
-    //   })
-    //   .then(res=>{
-    //     this.isError = false
-    //     let modal = document.getElementById('myModal')
-    //     modal.style.display = "block";
-    //   })
-    // }
-
-   
-    
-  }
+  
 
 }
 

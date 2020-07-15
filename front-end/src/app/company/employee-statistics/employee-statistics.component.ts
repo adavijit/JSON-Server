@@ -49,11 +49,9 @@ export class EmployeeStatisticsComponent implements OnInit {
     this.loadTable()
    }
    loadTable(){
-
     this.chartLabels.map(data=>{
-      this.companyService.getDepartmentData(data).then(res=>{
+      this.companyService.getDepartmentData(data).subscribe(res=>{
         this.chartData[0].data.push(Object.keys(res).length)
-        
       })
     })
 

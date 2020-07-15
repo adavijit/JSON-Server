@@ -27,30 +27,75 @@
       "firstName": "Avijit",
       "lastName": "Das",
       "id": 4
+    },
+    {
+      "email": "olivier@mail.com",
+      "password": "$2a$10$H6fOgMclCQI49u.XhsMa/ObEOEOeA2/jUZPzMdGFYLTdXCUcoIjxm",
+      "id": 5
+    },
+    {
+      "email": "we@e.com",
+      "password": "$2a$10$iy4DZPxC6rZczlWsNRsKZOfPqMvqRWjzQPSKz290kijvTV9G2UG1e",
+      "firstName": "qwe",
+      "lastName": "wqe",
+      "id": 6
     }
   ],
   "employees": [
     {
       "name": "Avijit",
-      "email": "adavijit@yahoo.com",
-      "department": "Testing",
-      "age": "3",
-      "gender": "Male",
-      "address": "Test",
+      "age": "22",
       "contact": "9876543211",
-      "technologies": "HTML,Javascript",
-      "id": 10
+      "gender": "male",
+      "technology": "CSS,Javascript",
+      "address": "qweasdzxc",
+      "email": "adavijit@yahoo.com",
+      "department": "Development",
+      "id": 1
     },
     {
-      "name": "Av",
+      "name": "Lionel",
+      "age": "19",
+      "contact": "9804174036",
+      "gender": "male",
+      "technology": "NA",
+      "address": "test",
+      "email": "test@test.com",
+      "department": "Finance",
+      "id": 2
+    },
+    {
+      "name": "Cristiano",
+      "age": "22",
+      "contact": "9823423423",
+      "gender": "female",
+      "technology": "HTML,CSS,Javascript",
+      "address": "Test",
+      "email": "abhhrait@gmail.com",
+      "department": "Testing",
+      "id": 3
+    },
+    {
+      "name": "Rest",
+      "age": "33",
+      "contact": "9876543211",
+      "gender": "male",
+      "technology": "HTML,CSS,Javascript",
+      "address": "3r2r\n324",
+      "email": "avijit.00.das@gmail.com",
+      "department": "Development",
+      "id": 4
+    },
+    {
+      "name": "Test test",
+      "age": "19",
+      "contact": "9804174036",
+      "gender": "female",
+      "technology": "NA",
+      "address": "Test",
       "email": "adavijit@yahoo.com",
       "department": "Finance",
-      "age": "34",
-      "gender": "Male",
-      "address": "test",
-      "contact": "9876543211",
-      "technologies": "NA",
-      "id": 11
+      "id": 5
     }
   ]
 }

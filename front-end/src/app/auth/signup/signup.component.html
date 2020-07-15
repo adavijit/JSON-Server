@@ -1,83 +1,88 @@
 <mat-card >
-    <mat-card-title 
-    style="background-color:#3f51b5;padding:5px; 
-    border:1px #3f51b5; border-radius: 2px; color: white;"  >Signup</mat-card-title>
-<mat-card-content>
-<form action="#">
-    <p>
-        <mat-form-field>
-          <input 
-          #firstName
-          type="text" matInput placeholder="First Name" 
-          formControlName="firstName">
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field>
-          <input 
-          #lastName
-          type="text" matInput placeholder="Last Name" 
-          formControlName="lastName">
-        </mat-form-field>
-      </p>
-  <p>
-    <mat-form-field>
-      <input 
-      #email
-      type="email" matInput placeholder="Email Address" 
-      formControlName="email">
-    </mat-form-field>
-  </p>
+  <mat-card-title 
+  style="background-color:#3f51b5;padding:5px; 
+  border:1px #3f51b5; border-radius: 2px; color: white;"  >
+      Signup</mat-card-title>
 
-  <p>
-    <mat-form-field>
-      <input 
-      #password
-      type="password" 
-      matInput placeholder="Password" 
-      formControlName="password">
-    </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field>
-      <input 
-      #confirmPassword
-      type="password" matInput placeholder="Confirm password" formControlName="conform password">
-    </mat-form-field>
-  </p>
-
-
-  <div class="button">
-    <button  mat-button
-    (click)= "onLoginClick()"
-    >Already have an account?</button> &nbsp;
-    <button  mat-raised-button color="primary"
-    (click)="onSignup(
-       firstName.value, lastName.value, email.value, password.value, confirmPassword.value
-    )"
-    
-    
-    >Submit</button>
-  </div>
+<mat-card>    
   
-</form>
-
-</mat-card-content>
+  <mat-card-content>    
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>    
+          <table>    
+              <tr>    
+                  <td>    
+                      <mat-form-field class="demo-full-width">    
+                          <input matInput type="text" id="firstName" name="firstName" formControlName="firstName"
+                          placeholder="First Name"
+                          >  
+                      </mat-form-field>    
+                  </td>  
+                  <td>    
+                      <mat-form-field class="demo-full-width">    
+                          <input matInput type="text" id="lastName" name="lastName" formControlName="lastName"
+                          placeholder="Last Name"
+                          > 
+                      </mat-form-field>    
+                  </td>      
+              </tr> 
+              <tr>    
+                  <td colspan="2">    
+                      <mat-form-field class="demo-full-width">    
+                          <input type="email" id="email" name="email" 
+                          matInput placeholder="Email"
+                          formControlName="email">   
+                      </mat-form-field>    
+                  </td>      
+                
+              </tr>  
+              <tr>    
+                <td>    
+                    <mat-form-field class="demo-full-width">    
+                        <input type="password" id="password" name="password" 
+                        matInput placeholder="Password"
+                        formControlName="password">   
+                    </mat-form-field>    
+                </td>   
+                <td>    
+                  <mat-form-field class="demo-full-width">    
+                      <input type="password" id="confirmPassword" name="confirmPassword" 
+                      matInput placeholder="Confirm Password"
+                      formControlName="confirmPassword">   
+                  </mat-form-field>    
+              </td>      
+              
+            </tr>        
+              
+              <tr>    
+                  <td colspan="2" class="content-center"> 
+                    <a mat-button (click)="onLoginClick()">Already have an account?</a>   
+                 
+                      <button
+                      mat-raised-button color="accent"
+                      type="submit" [disabled]="!userForm.valid">Submit</button>
+                  </td>    
+              </tr>    
+          </table>    
+      </form>    
+  </mat-card-content>    
 </mat-card>
-<div id="myModal" class="modal">
+<div id="myModal" class="modal" [ngStyle]="modalStyle">
 
-    <!-- Modal content -->
-    <div class="modal-content">
-      <p *ngIf="isError">{{errorText}}</p>
-      <div class="button" *ngIf="isError">
-        <button  mat-raised-button color="danger"
-        (click)="closeModal()">Try Again</button>
-      </div>
-      <p *ngIf="!isError">Saved successfully</p>
-      <div class="button" *ngIf="!isError">
-        <button  mat-raised-button color="danger"
-        (click)="onLoginClick()">Login</button>
-      </div>
+  <!-- Modal content -->
+  <div class="modal-content">
+    <p>{{errorText}}</p>
+    <div class="button">
+      <button 
+    *ngIf="!isError"
+      mat-raised-button color="danger"
+      (click)="onLoginClick()"
+     >Login Now</button>
+     <button 
+    *ngIf="isError"
+      mat-raised-button color="danger"
+      (click)="closeModal()"
+     >Cancel</button>
     </div>
-  
   </div>
+
+</div>

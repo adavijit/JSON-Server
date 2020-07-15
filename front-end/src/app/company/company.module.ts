@@ -21,6 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeStatisticsComponent } from './employee-statistics/employee-statistics.component';      
 import { ChartsModule } from 'ng2-charts';
+import { HttpClientModule } from '@angular/common/http';
+import { CompanyService } from '../services/company.service';
 
 
 @NgModule({
@@ -43,11 +45,16 @@ import { ChartsModule } from 'ng2-charts';
     MatRadioModule,      
     MatSelectModule,  
     MatTableModule,
-    ChartsModule
+    ChartsModule,
+    MatCheckboxModule,
+    HttpClientModule
   ],
   exports:[
     HomeComponent
   ],
+  providers:[
+    CompanyService
+  ]
 
 })
 export class CompanyModule { }
