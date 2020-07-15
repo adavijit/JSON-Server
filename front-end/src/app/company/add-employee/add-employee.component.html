@@ -1,4 +1,5 @@
-   
+
+
 <mat-card>    
     <!-- Title of an Card -->    
     <mat-card-title>    
@@ -6,34 +7,40 @@
     </mat-card-title>    
     
     <mat-card-content>    
-        <form action="#">    
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>    
             <table>    
                 <tr>    
                     <td>    
                         <mat-form-field class="demo-full-width">    
-                            <input matInput placeholder="Name" #name>    
+                            <input matInput type="text" id="fullName" name="fullName" formControlName="fullName"
+                            placeholder="Name"
+                            >  
                         </mat-form-field>    
                     </td>  
                     <td>    
                         <mat-form-field class="demo-full-width">    
-                            <input matInput placeholder="Phone Number" #contact>    
+                            <input matInput type="text" id="contact" name="contact" formControlName="contact"
+                            placeholder="Contact Number"
+                            > 
                         </mat-form-field>    
                     </td>      
                 </tr> 
                 <tr>    
                     <td>    
                         <mat-form-field class="demo-full-width">    
-                            <input matInput placeholder="Email" #email>    
+                            <input type="text" id="email" name="email" 
+                            matInput placeholder="Email"
+                            formControlName="email">   
                         </mat-form-field>    
                     </td>      
                     <td>   
                         <mat-form-field>    
-                            <mat-select placeholder="Select Department" #department>    
-                                <mat-option>-- Select Department --</mat-option>    
-                                <mat-option value="Development">Development</mat-option>    
-                                <mat-option value="Testing">Testing</mat-option>    
-                                <mat-option value="System Admin">System Admin</mat-option>    
-                                <mat-option value="Finance">Finance</mat-option>    
+                            <mat-select [(ngModel)]="deptName" id="department" name="department" formControlName="department" placeholder="Select Department">    
+                                <mat-option>-- Select Department --</mat-option>
+                                <mat-option
+                                 [value]="d.name" *ngFor="let d of departmentList"> {{d.name}}</mat-option>
+                                    
+                                  
 
                             </mat-select>    
                         </mat-form-field>    
@@ -44,7 +51,9 @@
                     
                     <td>   
                         <mat-form-field>    
-                            <mat-select placeholder="Select Age" #age>      
+                            <mat-select placeholder="Select Age" 
+                            id="age" name="age" formControlName="age"
+                            >      
                                 <mat-option *ngFor="let item of ages" value={{item}} >{{item}}</mat-option>    
                              
                             </mat-select>    
@@ -53,8 +62,8 @@
                     <td>    
                         <span>Gender&nbsp;</span> 
                         <mat-radio-group >  
-                            <mat-radio-button name="gender" #gender value="Male">Male&nbsp;</mat-radio-button>    
-                            <mat-radio-button name="gender" #gender value="Female">Female</mat-radio-button>    
+                            <input type="radio" value="male"  name="gender" formControlName="gender"> Male
+                            <input type="radio" value="female"  name="gender" formControlName="gender"> Female   
                         </mat-radio-group>    
                     </td>   
                 </tr>    
@@ -63,60 +72,49 @@
                      <td colspan="2">
                         <mat-form-field >
                             <mat-label>Enter Address</mat-label>
-                            <textarea matInput placeholder="Enter full Address" #address></textarea>
+                            <textarea
+                            id="address" name="address" formControlName="address"
+    
+                            
+                            matInput placeholder="Enter full Address"></textarea>
                           </mat-form-field>
                      </td>
                 </tr>   
-                <tr *ngIf="department.value!='Finance'">     
-                    <td >
+                <tr  *ngIf="deptName!='Finance'">     
+                    <td colspan="2">
                         <mat-label>Known Technology</mat-label>
                       <br>
                         <div>
-                            <form>
                               <div class="form-group">
-                                <input type="checkbox" name="tech" id="html" value="HTML">
+                                <input type="checkbox"
+                             formControlName="technology"
+                             [(ngModel)]="tech"
+                                name="technology" id="html"  (change)="onCheckChange($event)" value="HTML">
                                 <label for="html">HTML</label>
                               </div>
                               <div class="form-group">
-                                <input type="checkbox" name="tech" id="css" value="CSS">
+                                <input type="checkbox" (change)="onCheckChange($event)"   formControlName="technology"
+                                name="technology" id="css" value="CSS">
                                 <label for="css">CSS</label>
                               </div>
                               <div class="form-group">
-                                <input type="checkbox" name="tech" id="javascript" value="Javascript">
+                                <input type="checkbox" formControlName="technology"
+                                (change)="onCheckChange($event)" 
+                                name="technology" id="javascript" value="Javascript">
                                 <label for="javascript">Javascript</label>
                               </div>
-                            </form>
                           </div>
                       
                     </td>
                </tr>    
                 <tr>    
                     <td colspan="2" class="content-center">    
-                        <button mat-raised-button color="accent"
-                        (click)="onFormSubmit(name.value,contact.value,email.value,department.value,age.value,gender.radioGroup.value,address.value)"
-                        
-                        >Submit</button> 
+                        <button
+                        mat-raised-button color="accent"
+                        type="submit" [disabled]="!contactForm.valid">Submit</button>
                     </td>    
                 </tr>    
             </table>    
         </form>    
     </mat-card-content>    
 </mat-card>
-
-<div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <p *ngIf="isError">Something error!!!</p>
-      <div class="button" *ngIf="isError">
-        <button  mat-raised-button color="danger"
-        (click)="closeModal('no')">Cancel</button>
-      </div>
-      <p *ngIf="!isError">Saved successfully</p>
-      <div class="button" *ngIf="!isError">
-        <button  mat-raised-button color="danger"
-        (click)="closeModal('success')">Cancel</button>
-      </div>
-    </div>
-  
-  </div>

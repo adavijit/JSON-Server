@@ -20,6 +20,13 @@
       "firstName": "Lionel",
       "lastName": "Messi",
       "id": 3
+    },
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$GEFKG3I5RZJWQalLwenVse024n6966WuaHpUrNaKwOrL6hI1/lGzW",
+      "firstName": "Avijit",
+      "lastName": "Das",
+      "id": 4
     }
   ],
   "employees": [
