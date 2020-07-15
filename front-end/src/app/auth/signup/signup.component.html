@@ -1,88 +1,71 @@
-<mat-card >
-  <mat-card-title 
-  style="background-color:#3f51b5;padding:5px; 
-  border:1px #3f51b5; border-radius: 2px; color: white;"  >
-      Signup</mat-card-title>
+<mat-card>
+  <mat-card-title style="background-color:#3f51b5;padding:5px; 
+  border:1px #3f51b5; border-radius: 2px; color: white;">
+    Signup</mat-card-title>
 
-<mat-card>    
-  
-  <mat-card-content>    
-      <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>    
-          <table>    
-              <tr>    
-                  <td>    
-                      <mat-form-field class="demo-full-width">    
-                          <input matInput type="text" id="firstName" name="firstName" formControlName="firstName"
-                          placeholder="First Name"
-                          >  
-                      </mat-form-field>    
-                  </td>  
-                  <td>    
-                      <mat-form-field class="demo-full-width">    
-                          <input matInput type="text" id="lastName" name="lastName" formControlName="lastName"
-                          placeholder="Last Name"
-                          > 
-                      </mat-form-field>    
-                  </td>      
-              </tr> 
-              <tr>    
-                  <td colspan="2">    
-                      <mat-form-field class="demo-full-width">    
-                          <input type="email" id="email" name="email" 
-                          matInput placeholder="Email"
-                          formControlName="email">   
-                      </mat-form-field>    
-                  </td>      
-                
-              </tr>  
-              <tr>    
-                <td>    
-                    <mat-form-field class="demo-full-width">    
-                        <input type="password" id="password" name="password" 
-                        matInput placeholder="Password"
-                        formControlName="password">   
-                    </mat-form-field>    
-                </td>   
-                <td>    
-                  <mat-form-field class="demo-full-width">    
-                      <input type="password" id="confirmPassword" name="confirmPassword" 
-                      matInput placeholder="Confirm Password"
-                      formControlName="confirmPassword">   
-                  </mat-form-field>    
-              </td>      
-              
-            </tr>        
-              
-              <tr>    
-                  <td colspan="2" class="content-center"> 
-                    <a mat-button (click)="onLoginClick()">Already have an account?</a>   
-                 
-                      <button
-                      mat-raised-button color="accent"
-                      type="submit" [disabled]="!userForm.valid">Submit</button>
-                  </td>    
-              </tr>    
-          </table>    
-      </form>    
-  </mat-card-content>    
-</mat-card>
-<div id="myModal" class="modal" [ngStyle]="modalStyle">
+  <mat-card>
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <p>{{errorText}}</p>
-    <div class="button">
-      <button 
-    *ngIf="!isError"
-      mat-raised-button color="danger"
-      (click)="onLoginClick()"
-     >Login Now</button>
-     <button 
-    *ngIf="isError"
-      mat-raised-button color="danger"
-      (click)="closeModal()"
-     >Cancel</button>
+    <mat-card-content>
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+        <table>
+          <tr>
+            <td>
+              <mat-form-field class="demo-full-width">
+                <input matInput type="text" id="firstName" name="firstName" formControlName="firstName"
+                  placeholder="First Name">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="demo-full-width">
+                <input matInput type="text" id="lastName" name="lastName" formControlName="lastName"
+                  placeholder="Last Name">
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <mat-form-field class="demo-full-width">
+                <input type="email" id="email" name="email" matInput placeholder="Email" formControlName="email">
+              </mat-form-field>
+            </td>
+
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="demo-full-width">
+                <input type="password" id="password" name="password" matInput placeholder="Password"
+                  formControlName="password">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="demo-full-width">
+                <input type="password" id="confirmPassword" name="confirmPassword" matInput
+                  placeholder="Confirm Password" formControlName="confirmPassword">
+              </mat-form-field>
+            </td>
+
+          </tr>
+
+          <tr>
+            <td colspan="2" class="content-center">
+              <a mat-button (click)="onLoginClick()">Already have an account?</a>
+
+              <button mat-raised-button color="accent" type="submit" [disabled]="!userForm.valid">Submit</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <div id="myModal" class="modal" [ngStyle]="modalStyle">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <p>{{errorText}}</p>
+      <div class="button">
+        <button *ngIf="!isError" mat-raised-button color="danger" (click)="onLoginClick()">Login Now</button>
+        <button *ngIf="isError" mat-raised-button color="danger" (click)="closeModal()">Cancel</button>
+      </div>
     </div>
-  </div>
 
-</div>
+  </div>

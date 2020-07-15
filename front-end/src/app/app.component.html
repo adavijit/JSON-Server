@@ -1,7 +1,2 @@
-<app-login-signup
-*ngIf="isLoginSignup"
-(onUserLoggedIn)="handleAuthChange('login')"
-></app-login-signup>
-<app-home *ngIf="!isLoginSignup"
-(isLogout)="handleAuthChange('logout')"
-></app-home>
+<app-login-signup *ngIf="isLoginSignup" (onUserLoggedIn)="handleAuthChange('login')"></app-login-signup>
+<app-home *ngIf="!isLoginSignup" (isLogout)="handleAuthChange('logout')"></app-home>
