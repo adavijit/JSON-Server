@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,8 @@ export class LoginComponent implements OnInit {
   };
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     this.userForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -53,7 +55,8 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (res) => {
           localStorage.setItem('token', JSON.stringify(res['accessToken']));
-          this.isLoggedIn.emit();
+          // this.isLoggedIn.emit();
+          this.router.navigate(['/home'])
         },
         (err) => {
           this.errorText = err.error;
@@ -74,7 +77,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSignupClick() {
-    this.isSignupClicked.emit();
+    // this.isSignupClicked.emit();
+    this.router.navigate(['/signup'])
   }
   closeModal() {
     this.modalStyle = {

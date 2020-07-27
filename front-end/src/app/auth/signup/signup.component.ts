@@ -8,6 +8,7 @@ import {
   AbstractControl,
   FormGroup,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -35,7 +36,8 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router : Router
   ) {
     this.userForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
@@ -79,7 +81,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {}
   onLoginClick() {
-    this.isLoginClicked.emit();
+    this.router.navigate(['/login'])
   }
   onSubmit() {
     this.userDetails = {

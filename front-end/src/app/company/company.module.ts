@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from  '@angular/material/icon';
-import { AddEmployeeComponent } from './add-employee/add-employee.component'; 
+
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu'
@@ -18,11 +18,14 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { EmployeeStatisticsComponent } from './employee-statistics/employee-statistics.component';      
+     
 import { ChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { CompanyService } from '../services/company.service';
+import { CompanyRoute } from './company-route.module';
+import { AddEmployeeComponent } from './home/add-employee/add-employee.component';
+import { EmployeeListComponent } from './home/employee-list/employee-list.component';
+import { EmployeeStatisticsComponent } from './home/employee-statistics/employee-statistics.component';
 
 
 @NgModule({
@@ -47,13 +50,17 @@ import { CompanyService } from '../services/company.service';
     MatTableModule,
     ChartsModule,
     MatCheckboxModule,
-    HttpClientModule
+    HttpClientModule,
+    CompanyRoute
   ],
   exports:[
     HomeComponent
   ],
   providers:[
     CompanyService
+  ],
+  bootstrap:[
+    HomeComponent
   ]
 
 })

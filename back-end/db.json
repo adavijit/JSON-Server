@@ -96,6 +96,17 @@
       "email": "adavijit@yahoo.com",
       "department": "Finance",
       "id": 5
+    },
+    {
+      "name": "Test",
+      "age": "19",
+      "contact": "980417036",
+      "address": "qwqwe",
+      "gender": "male",
+      "email": "adavijit@yahoo.com",
+      "department": "Development",
+      "technology": "HTML,CSS",
+      "id": 6
     }
   ]
 }

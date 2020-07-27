@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { AuthService } from '../services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthRoute } from './auth-route.module';
 
 @NgModule({
   declarations: [LoginComponent, SignupComponent, LoginSignupComponent],
@@ -33,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    AuthRoute
   ],
   exports: [LoginComponent, SignupComponent, LoginSignupComponent],
   providers: [AuthService],

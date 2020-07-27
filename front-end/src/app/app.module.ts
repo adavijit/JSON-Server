@@ -5,10 +5,11 @@ import { AppComponent } from './app.component';
 
 import { AuthModule } from './auth/auth.module';
 import { CompanyModule } from './company/company.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AuthModule, CompanyModule],
+  imports: [BrowserModule, AuthModule, CompanyModule , AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -17,7 +17,6 @@ export class AddEmployeeComponent implements OnInit {
   isTech = true;
   empForm;
   techArray = [];
-  employeeDetails: EmployeeDetails;
   modalStyle = {
     display: 'none',
     position: 'fixed',
@@ -77,19 +76,17 @@ export class AddEmployeeComponent implements OnInit {
   ];
 
   onSubmit() {
-    this.employeeDetails = {
-      name: this.empForm.value.fullName,
-      age: this.empForm.value.age,
-      contact: this.empForm.value.contact,
-      gender: this.empForm.value.gender,
-      technology: this.techArray.length ? this.techArray.join() : 'NA',
-      address: this.empForm.value.address,
-      email: this.empForm.value.email,
-      department: this.empForm.value.department,
-    };
+    const employeeDetails = new EmployeeDetails(this.empForm.value.fullName,
+         this.empForm.value.age,
+         this.empForm.value.contact,
+       this.empForm.value.gender,
+        this.techArray.length ? this.techArray.join() : 'NA',
+        this.empForm.value.address,
+        this.empForm.value.email,
+        this.empForm.value.department)
 
     this.companyService
-      .saveEmployeeData(this.employeeDetails)
+      .saveEmployeeData(employeeDetails)
       .subscribe((data) => {
         console.log(data);
         this.modalStyle = {

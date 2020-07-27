@@ -16,7 +16,7 @@ export class CompanyService {
   getAllEmployee(): Observable<EmployeeDetails> {
     return this.http.get<any>('http://localhost:3000/employees');
   }
-  getDepartmentData(department: string) {
+  getDepartmentData(department: string):Observable<any> {
     return this.http.get<any>(
       `http://localhost:3000/employees?department=` + department
     );
