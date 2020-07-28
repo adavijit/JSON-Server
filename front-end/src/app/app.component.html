@@ -1,3 +1,34 @@
-<!-- <app-login-signup *ngIf="isLoginSignup" (onUserLoggedIn)="handleAuthChange('login')"></app-login-signup>
-<app-home *ngIf="!isLoginSignup" (isLogout)="handleAuthChange('logout')"></app-home> -->
+<mat-toolbar *ngIf="isCheck" >
+    <span>Pixel</span>
+    <span class="example-spacer"></span>
+    <a mat-button 
+      routerLinkActive="active"
+      routerLink="/home"
+      [routerLinkActiveOptions]="{exact: true}"
+      >
+         Employee List
+      </a>
+    <a
+    routerLink="/home/add"
+    routerLinkActive="active"
+    mat-button 
+    [routerLinkActiveOptions]="{exact: true}"
+    >
+        Add Employee
+    </a>
+      
+      <a mat-button
+      routerLinkActive="active"
+      routerLink="/home/statistics"
+      >
+        Statistics
+     </a>
+    <a mat-button
+    (click)="onLogout()"
+    routerLinkActive="active"
+    >
+      Logout
+    </a>
+</mat-toolbar>
+
 <router-outlet></router-outlet>

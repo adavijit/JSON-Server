@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CompanyService } from 'src/app/services/company.service';
 import { EmployeeDetails } from 'src/app/shared/model/employee.model';
 
@@ -14,18 +15,15 @@ export class EmployeeListComponent implements OnInit {
   
   dataSource=[]
   isDataLoaded= false
-  
-  constructor(private companyService : CompanyService  ) {
+  public href: string = "";
+  constructor(private companyService : CompanyService , private router: Router) {
    
    }
 
    ngOnInit() {
-   this.loadTable()
+    this.loadTable()
   }
   loadTable(){
-
-
-
     this.companyService.getAllEmployee().subscribe(res=>{
        for(let i=0;i<Object.keys(res).length;i++){
 

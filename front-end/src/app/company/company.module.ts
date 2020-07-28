@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home/home.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from  '@angular/material/icon';
@@ -29,7 +28,7 @@ import { EmployeeStatisticsComponent } from './home/employee-statistics/employee
 
 
 @NgModule({
-  declarations: [HomeComponent, AddEmployeeComponent, EmployeeListComponent, EmployeeStatisticsComponent],
+  declarations: [ AddEmployeeComponent, EmployeeListComponent, EmployeeStatisticsComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -54,13 +53,13 @@ import { EmployeeStatisticsComponent } from './home/employee-statistics/employee
     CompanyRoute
   ],
   exports:[
-    HomeComponent
+    
   ],
   providers:[
     CompanyService
   ],
   bootstrap:[
-    HomeComponent
+    
   ]
 
 })

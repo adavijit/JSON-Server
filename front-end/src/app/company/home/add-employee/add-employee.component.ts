@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { EmployeeDetails } from 'src/app/shared/model/employee.model';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-employee',
@@ -33,7 +34,8 @@ export class AddEmployeeComponent implements OnInit {
 
   constructor(
     private companyService: CompanyService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router : Router
   ) {
     this.empForm = this.formBuilder.group({
       fullName: ['', [Validators.required]],
@@ -88,7 +90,6 @@ export class AddEmployeeComponent implements OnInit {
     this.companyService
       .saveEmployeeData(employeeDetails)
       .subscribe((data) => {
-        console.log(data);
         this.modalStyle = {
           display: 'block',
           position: 'fixed',
@@ -109,7 +110,7 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   onCancel() {
-    this.saveSuccess.emit();
+    this.router.navigate(['/home'])
   }
   onCheckChange(event: MatCheckboxChange) {
     if (event.checked) {

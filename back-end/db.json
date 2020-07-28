@@ -107,6 +107,17 @@
       "department": "Development",
       "technology": "HTML,CSS",
       "id": 6
+    },
+    {
+      "name": "mbappe",
+      "age": "20",
+      "contact": "9876543211",
+      "address": "France",
+      "gender": "male",
+      "email": "mbappe@psg.com",
+      "department": "System Admin",
+      "technology": "HTML,CSS,Javascript",
+      "id": 8
     }
   ]
 }

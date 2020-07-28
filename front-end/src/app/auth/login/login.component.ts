@@ -54,8 +54,8 @@ export class LoginComponent implements OnInit {
       })
       .subscribe(
         (res) => {
-          localStorage.setItem('token', JSON.stringify(res['accessToken']));
-          // this.isLoggedIn.emit();
+          this.authService.login(JSON.stringify(res['accessToken']))
+
           this.router.navigate(['/home'])
         },
         (err) => {

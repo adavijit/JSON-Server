@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,23 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  isLoginSignup = true;
+  isCheck = true;
 
+  constructor(private router : Router,  private route : ActivatedRoute,
+   private authService : AuthService 
+    ){
+
+  }
+  public href: string = "";
   title = 'front-end';
   ngOnInit() {
-    if (localStorage.getItem('token') != null) {
-      this.isLoginSignup = false;
-    } else {
-      this.isLoginSignup = true;
-    }
+    this.authService.isLoggedIn()
+      .subscribe(
+        (res : boolean)=>{
+          this.isCheck = res;
+        }
+      )
   }
-  handleAuthChange(status: string) {
-    if (status === 'login') {
-      this.isLoginSignup = false;
-    }
-    if (status === 'logout') {
-      localStorage.removeItem('token');
-      this.isLoginSignup = true;
-    }
+  onLogout(){
+    this.authService.logout()
+    this.router.navigate(['/'])
+  
   }
 }
