@@ -63,7 +63,7 @@
     <div class="modal-content">
       <p>{{errorText}}</p>
       <div class="button">
-        <button *ngIf="!isError" mat-raised-button color="danger" (click)="onLoginClick()">Login Now</button>
+        <button *ngIf="!isError" mat-raised-button color="danger" routerLink="/login">Login Now</button>
         <button *ngIf="isError" mat-raised-button color="danger" (click)="closeModal()">Cancel</button>
       </div>
     </div>
